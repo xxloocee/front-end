@@ -1,0 +1,77 @@
+# javascript
+# html
+# css
+## css语法
+## css预处理
+## css技巧
+  + [You-need-to-know-css](https://lhammer.cn/You-need-to-know-css/#/zh-cn/)
+  + [QiShaoXuan-CSS Tricks](https://qishaoxuan.github.io/css_tricks/)
+  + [CSS-Inspiration](https://chokcoco.github.io/CSS-Inspiration/#/)
+# js框架
+## vue
+## react
+## angular
+# js库
+# css框架
+  + [bootstrap](https://foundation.zurb.com/)
+  + [semantic ui](https://semantic-ui.com/)
+  + [foundation](https://foundation.zurb.com/)
+# css库
+  + [animate动画库](https://daneden.github.io/animate.css/)
+  + [iconfont](https://www.iconfont.cn/)
+  + [Font Awesome图标库](https://fontawesome.com/)
+  + [图表：echarts](https://echarts.baidu.com/echarts2/doc/example.html)
+# 基于js框架的组件
+# 前端开发
+## 传统开发流程
+## pc端
+## 移动端
+# 工程化
+# http
+# 正则表达式
+  + [匹配中国大陆手机号码](https://github.com/VincentSit/ChinaMobilePhoneNumberRegex)
+# 网络资源
+## 标准
+  + [w3c](http://www.w3school.com.cn/)
+  + [MDN](https://developer.mozilla.org/zh-CN/)
+## 资料
+  + [web开发路线图中文版](https://github.com/ccloli/developer-roadmap-zh-CN)
+  + [菜鸟教程](https://www.runoob.com/)
+  + [前端九部](https://www.yuque.com/fe9)
+  + [css手册](http://css.doyoe.com/)
+  + [阮一峰的个人网站](http://www.ruanyifeng.com/home.html)
+## 社区
+  + [github](https://github.com/)
+  + [hellogitHub](https://hellogithub.com/)
+  + [v2ex](https://www.v2ex.com/)
+  + [掘金](https://juejin.im/timeline)
+  + [思否](https://segmentfault.com/)
+  + [开发者头条](https://toutiao.io/)
+  + [infoQ](https://www.infoq.cn/)
+## 论坛
+## 期刊
+  + [前端日报](http://caibaojian.com/t/%E5%89%8D%E7%AB%AF%E6%97%A5%E6%8A%A5)
+## 资源
+  + [cdn加速服务：bootcdn](https://www.bootcdn.cn/)
+  + [css样式重置：normalize](https://www.bootcdn.cn/normalize/)
+## 面试
+  + [InterviewMap](https://yuchengkai.cn/docs/)
+## 工具
+  + [占位图片生成器：dummyimage](https://dummyimage.com/)
+  + [字体格式转换： fontsquirrel](https://www.fontsquirrel.com/tools/webfont-generator)
+  + [兼容性检测：caniuse](https://caniuse.com/)
+  + [本地服务构建工具：WampServer](http://www.wampserver.com/)
+## 视频
+  + 腾讯课堂
+  + 慕课网
+  + 51CTO
+  + bilibili
+## 刷题
+  + [LeetCode](https://leetcode-cn.com/)
+  + [动画的形式呈现解 LeetCode 题目的思路](https://github.com/MisterBooo/LeetCodeAnimation)
+# node.js
+# 设计模式
+# 计算机原理
+# 相关书籍
+  + [git上分享的书](https://github.com/ddzy/fe-necessary-book)
+# 优秀代码
