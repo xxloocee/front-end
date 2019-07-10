@@ -1,6 +1,12 @@
 # 前端手册
 对于html,css,js基础语法并不给出详细文档，只给出个人认为比较好的学习资料和资源的链接，其他类目更是如此，持续完善中
 ## javascript
+  + [js教程-网道](https://wangdoc.com/javascript/index.html)
+  + [es6入门-阮一峰](http://es6.ruanyifeng.com/)
+### js技巧
+### js优质代码
+### js常用代码片段
+
 ## html
 ## css
 ### css语法
@@ -11,6 +17,12 @@
   + [CSS-Inspiration](https://chokcoco.github.io/CSS-Inspiration/##/)
 ## js框架
 ### vue
+#### 插件
+#### 组件
+  + [element-ui](https://element.eleme.io/#/zh-CN)
+#### 手脚架
+  + [基于vue和element的后台管理](https://panjiachen.github.io/vue-element-admin-site/zh/guide/)
+  + []()
 ### react
 ### angular
 ## js库
@@ -23,12 +35,13 @@
   + [iconfont](https://www.iconfont.cn/)
   + [Font Awesome图标库](https://fontawesome.com/)
   + [图表：echarts](https://echarts.baidu.com/echarts2/doc/example.html)
-## 基于js框架的组件
 ## 前端开发
-### 传统开发流程
+### 基本开发流程
 ### pc端
 ### 移动端
 ## 工程化
+### webpack
+### npm
 ## http
 ## 正则表达式
   + [匹配中国大陆手机号码](https://github.com/VincentSit/ChinaMobilePhoneNumberRegex)
@@ -42,7 +55,7 @@
   + [前端九部](https://www.yuque.com/fe9)
   + [css手册](http://css.doyoe.com/)
   + [阮一峰的个人网站](http://www.ruanyifeng.com/home.html)
-### 社区
+### 社区论坛
   + [github](https://github.com/)
   + [hellogitHub](https://hellogithub.com/)
   + [v2ex](https://www.v2ex.com/)
@@ -50,9 +63,24 @@
   + [思否](https://segmentfault.com/)
   + [开发者头条](https://toutiao.io/)
   + [infoQ](https://www.infoq.cn/)
-### 论坛
 ### 期刊
   + [前端日报](http://caibaojian.com/t/%E5%89%8D%E7%AB%AF%E6%97%A5%E6%8A%A5)
+  + [阿里云前端技术周刊](https://github.com/aliyunfe/weekly)
+### 大厂前端博客
+  + [淘宝前端团队](http://taobaofed.org/)
+  + [语雀团队](https://txd.alibaba-inc.com/)
+  + [百度云技术团队](https://fex.baidu.com/)
+  + [百度用户体验中心](http://mux.baidu.com/)
+  + [百度EFE](https://efe.baidu.com/)
+  + [百度Eux](http://eux.baidu.com/)
+  + [腾讯全段团队](http://www.alloyteam.com/)
+  + [腾讯IMWeb前端团队](https://imweb.io/)
+  + [腾讯用户研究与体验设计部](https://cdc.tencent.com/)
+  + [360前端团队](https://75team.com/)
+  + [去哪儿网大前端技术中心](https://ymfe.org/)
+  + [京东设计中心](http://jdc.jd.com/)
+  + [饿了么前端](https://zhuanlan.zhihu.com/ElemeFE)
+  + [携程设计委员会](http://ued.ctrip.com/)
 ### 资源
   + [cdn加速服务：bootcdn](https://www.bootcdn.cn/)
   + [css样式重置：normalize](https://www.bootcdn.cn/normalize/)
