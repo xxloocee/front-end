@@ -6,6 +6,146 @@
 ### js技巧
 ### js优质代码
 ### js常用代码片段
+```javascript
+// 求数组最大元素
+
+// ES5 的写法
+Math.max.apply(null, [14, 3, 77])
+// ES6 的写法
+Math.max(...[14, 3, 77])
+```
+```javascript
+// 通过push函数，将一个数组添加到另一个数组的尾部
+
+// ES5的 写法
+let arr1 = [0, 1, 2];
+let arr2 = [3, 4, 5];
+Array.prototype.push.apply(arr1, arr2);
+// ES6 的写法
+let arr1 = [0, 1, 2];
+let arr2 = [3, 4, 5];
+arr1.push(...arr2);
+```
+```javascript
+// 复制数组
+// ES5
+let a1 = [1, 2];
+let a2 = a1.concat();
+// ES6
+let a1 = [1, 2];
+let a2 = [...a1];
+```
+```javascript
+// 合并数组，这两种方法都是浅拷贝
+// ES5
+arr1.concat(arr2, arr3);
+// ES6
+[...arr1, ...arr2, ...arr3]
+```
+```javascript
+// JavaScript 会将四个字节的 Unicode 字符，识别为 2 个字符，采用扩展运算符就没有这个问题,正确返回字符串长度如下
+function length(str) {
+  return [...str].length;
+}
+// 凡是涉及到操作四个字节的 Unicode 字符的函数，都有这个问题。因此，最好都用扩展运算符改写
+let str = 'x\uD83D\uDE80y';
+str.split('').reverse().join('')
+// 'y\uDE80\uD83Dx'
+// 上面代码中，如果不用扩展运算符，字符串的reverse操作就不正确
+[...str].reverse().join('')
+// 'y\uD83D\uDE80x'
+```
+```javascript
+// 一个类似数组的对象，转为真正的数组,对于还没有部署该方法的浏览器，可以用Array.prototype.slice方法替代
+const toArray = (() =>
+  Array.from ? Array.from : obj => [].slice.call(obj)
+)();
+let arrayLike = {
+    '0': 'a',
+    '1': 'b',
+    '2': 'c',
+    length: 3
+};
+// ES5的写法
+var arr1 = [].slice.call(arrayLike); // ['a', 'b', 'c']
+// ES6的写法
+let arr2 = Array.from(arrayLike); // ['a', 'b', 'c']
+// NodeList对象
+let ps = document.querySelectorAll('p');
+Array.from(ps).filter(p => {
+  return p.textContent.length > 100;
+});
+// arguments对象
+function foo() {
+  var args = Array.from(arguments);
+  // ...
+}
+// 扩展运算符背后调用的是遍历器接口（Symbol.iterator），如果一个对象没有部署这个接口，就无法转换
+// NodeList对象
+[...document.querySelectorAll('div')]
+// arguments对象
+function foo() {
+  const args = [...arguments];
+}
+// 任何有length属性的对象，都可以通过Array.from方法转为数组,而此时扩展运算符就无法转换
+```
+```javascript
+// 取出一组 DOM 节点的文本内容
+let spans = document.querySelectorAll('span.name');
+// map()
+let names1 = Array.prototype.map.call(spans, s => s.textContent);
+// Array.from()
+let names2 = Array.from(spans, s => s.textContent)
+```
+```javascript
+// 将数组中布尔值为false的成员转为0
+Array.from([1, , 2, , 3], (n) => n || 0)
+// [1, 0, 2, 0, 3]
+```
+```javascript
+// 返回各种数据的类型
+function typesOf () {
+  return Array.from(arguments, value => typeof value)
+}
+typesOf(null, [], NaN)
+// ['object', 'object', 'number']
+```
+```javascript
+// Array.from()可以将各种值转为真正的数组，并且还提供map功能
+Array.from({ length: 2 }, () => 'jack')
+// ['jack', 'jack']
+```
+```javascript
+// Array.of方法可以用下面的代码模拟实现
+function ArrayOf(){
+  return [].slice.call(arguments);
+}
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+
 
 ## html
 ## css
@@ -22,6 +162,7 @@
   + [element-ui](https://element.eleme.io/#/zh-CN)
 #### 手脚架
   + [基于vue和element的后台管理](https://panjiachen.github.io/vue-element-admin-site/zh/guide/)
+  + [vue-framework-wz后台管理](https://github.com/herozhou/vue-framework-wz)
   + []()
 ### react
 ### angular
@@ -51,10 +192,12 @@
   + [MDN](https://developer.mozilla.org/zh-CN/)
 ### 资料
   + [web开发路线图中文版](https://github.com/ccloli/developer-roadmap-zh-CN)
+  + [git上的优质学习路线项目](https://github.com/wuxiaobin1995/Frontend-Doc)
   + [菜鸟教程](https://www.runoob.com/)
   + [前端九部](https://www.yuque.com/fe9)
   + [css手册](http://css.doyoe.com/)
   + [阮一峰的个人网站](http://www.ruanyifeng.com/home.html)
+  + [小火柴的前端小册子](https://xiaohuochai.site/)
 ### 社区论坛
   + [github](https://github.com/)
   + [hellogitHub](https://hellogithub.com/)
