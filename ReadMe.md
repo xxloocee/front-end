@@ -3,6 +3,7 @@
 ## javascript
   + [js教程-网道](https://wangdoc.com/javascript/index.html)
   + [es6入门-阮一峰](http://es6.ruanyifeng.com/)
+  + [js模块化](https://juejin.im/post/5d348134f265da1b904c1e0c)
 ### js技巧
 ### js优质代码
 ### js常用代码片段
@@ -122,30 +123,56 @@ function ArrayOf(){
 }
 ```
 ```javascript
+// 识别数组中的NaN
+[NaN].indexOf(NaN)
+// -1
+[NaN].findIndex(y => Object.is(NaN, y))
+// 0
+[NaN].includes(NaN)
+// true
 ```
 ```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
-```javascript
-```
+// 拷贝对象及其原型属性，写法一的__proto__属性在非浏览器的环境不一定部署，因此推荐使用写法二和写法三
+// 写法一
+const clone1 = {
+  __proto__: Object.getPrototypeOf(obj),
+  ...obj
+};
 
+// 写法二
+const clone2 = Object.assign(
+  Object.create(Object.getPrototypeOf(obj)),
+  obj
+);
+
+// 写法三
+const clone3 = Object.create(
+  Object.getPrototypeOf(obj),
+  Object.getOwnPropertyDescriptors(obj)
+)
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+```javascript
+```
+### 前端项目
+  + [基于vue elementui和springboot的微人事管理系统](https://github.com/lenve/vhr)
 
 ## html
 ## css
@@ -182,6 +209,8 @@ function ArrayOf(){
 ### 移动端
 ## 工程化
 ### webpack
+  + [webpack优化](https://juejin.im/post/5d372851f265da1ba915bf78)
+  + [package.json说明文档](http://hao.caibaojian.com/t?url=https://juejin.im/post/5d3435b9f265da1b96134119)
 ### npm
 ## http
 ## 正则表达式
@@ -193,11 +222,13 @@ function ArrayOf(){
 ### 资料
   + [web开发路线图中文版](https://github.com/ccloli/developer-roadmap-zh-CN)
   + [git上的优质学习路线项目](https://github.com/wuxiaobin1995/Frontend-Doc)
+  + [前端导航](https://yhlben.github.io/front-end-navigation/)
   + [菜鸟教程](https://www.runoob.com/)
   + [前端九部](https://www.yuque.com/fe9)
   + [css手册](http://css.doyoe.com/)
   + [阮一峰的个人网站](http://www.ruanyifeng.com/home.html)
   + [小火柴的前端小册子](https://xiaohuochai.site/)
+  + [数据结构和算法](https://segmentfault.com/a/1190000019842169)
 ### 社区论坛
   + [github](https://github.com/)
   + [hellogitHub](https://hellogithub.com/)
