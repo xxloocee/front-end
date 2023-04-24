@@ -1,5 +1,5 @@
 # 前端手册
-对于html,css,js基础语法并不给出详细文档，只给出个人认为比较好的学习资料和资源的链接，其他类目更是如此，持续完善中
+对于html,css,js基础语法并不给出详细文档，只给出个人认为比较好的学习资料和资源的链接，持续完善中
 ## javascript
   + [js教程-网道](https://wangdoc.com/javascript/index.html)
   + [es6入门-阮一峰](http://es6.ruanyifeng.com/)
