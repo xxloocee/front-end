@@ -6,6 +6,22 @@
   + [js模块化](https://juejin.im/post/5d348134f265da1b904c1e0c)
 ### js技巧
 ### js优质代码
+### js归纳总结
+  + 遍历语法
+  1. 传统for循环：
+    写法比较麻烦
+  2. 数组内置forEach：
+    缺点在于中途无法跳出循环，break和return都无法奏效
+  3. for ... in：
+    可以遍历数组的键名，对于普通的对象，for...in循环可以遍历键名，for...in循环主要是为遍历对象而设计的，不适用于遍历数组，缺点是
+    - 数组的键名是数字，但是for...in循环是以字符串作为键名“0”、“1”、“2”等
+    - for...in循环不仅遍历数字键名，还会遍历手动添加的其他键，甚至包括原型链上的键
+    - 某些情况下，for...in循环会以任意顺序遍历键名
+  4. for ... of：
+  for...of循环，作为遍历所有数据结构的统一的方法，一个数据结构只要部署了Symbol.iterator属性，就被视为具有 iterator 接口，就可以用for...of循环遍历它的成员，for...of循环可以使用的范围包括数组、Set 和 Map 结构、某些类似数组的对象（比如arguments对象、DOM NodeList 对象）、Generator 对象，以及字符串，但对于普通的对象，for...of结构不能直接使用，会报错，必须部署了 Iterator 接口后才能使用，for...of循环可以代替数组实例的forEach方法，返回键值，优点是
+  - 有着同for...in一样的简洁语法，但是没有for...in那些缺点
+  - 不同于forEach方法，它可以与break、continue和return配合使用
+  - 提供了遍历所有数据结构的统一操作接口
 ### js常用代码片段
 ```javascript
 // 求数组最大元素
@@ -152,6 +168,135 @@ const clone3 = Object.create(
 )
 ```
 ```javascript
+// 将查询字符串转为对象
+Object.fromEntries(new URLSearchParams('foo=bar&baz=qux'))
+// { foo: "bar", baz: "qux" }
+```
+```javascript
+// 数组去重的又一方法
+[...new Set(array)]
+// 数组去重的又一方法
+function dedupe(array) {
+  return Array.from(new Set(array));
+}
+dedupe([1, 1, 2, 3]) // [1, 2, 3]
+```
+```javascript
+// 字符串去重
+[...new Set('ababbc')].join('')
+// "abc"
+```
+```javascript
+let a = new Set([1, 2, 3]);
+let b = new Set([4, 3, 2]);
+
+// 并集
+let union = new Set([...a, ...b]);
+// Set {1, 2, 3, 4}
+
+// 交集
+let intersect = new Set([...a].filter(x => b.has(x)));
+// set {2, 3}
+
+// 差集
+let difference = new Set([...a].filter(x => !b.has(x)));
+// Set {1}
+```
+```javascript
+// map转为对象，如果所有 Map 的键都是字符串，它可以无损地转为对象，如果有非字符串的键名，那么这个键名会被转成字符串，再作为对象的键名
+function strMapToObj(strMap) {
+  let obj = Object.create(null);
+  for (let [k,v] of strMap) {
+    obj[k] = v;
+  }
+  return obj;
+}
+```
+```javascript
+// 对象转为map
+function objToStrMap(obj) {
+  let strMap = new Map();
+  for (let k of Object.keys(obj)) {
+    strMap.set(k, obj[k]);
+  }
+  return strMap;
+}
+```
+```javascript
+// map转为json，Map 的键名都是字符串，这时可以选择转为对象 JSON
+function strMapToJson(strMap) {
+  return JSON.stringify(strMapToObj(strMap));
+}
+// Map 的键名有非字符串，这时可以选择转为数组 JSON
+function mapToArrayJson(map) {
+  return JSON.stringify([...map]);
+}
+// JSON 转为 Map，正常情况下，所有键名都是字符串
+function jsonToStrMap(jsonStr) {
+  return objToStrMap(JSON.parse(jsonStr));
+}
+
+jsonToStrMap('{"yes": true, "no": false}')
+// Map {'yes' => true, 'no' => false}
+// 有一种特殊情况，整个 JSON 就是一个数组，且每个数组成员本身，又是一个有两个成员的数组。这时，它可以一一对应地转为 Map。这往往是 Map 转为数组 JSON 的逆操作
+function jsonToMap(jsonStr) {
+  return new Map(JSON.parse(jsonStr));
+}
+
+jsonToMap('[[true,7],[{"foo":3},["abc"]]]')
+// Map {true => 7, Object {foo: 3} => ['abc']}
+```
+```javascript
+// 利用 Generator 函数和for...of循环，实现斐波那契数列
+function* fibonacci() {
+  let [prev, curr] = [0, 1];
+  for (;;) {
+    yield curr;
+    [prev, curr] = [curr, prev + curr];
+  }
+}
+
+for (let n of fibonacci()) {
+  if (n > 1000) break;
+  console.log(n);
+}
+```
+```javascript
+// 利用for...of循环，可以写出遍历任意对象（object）的方法。原生的 JavaScript 对象没有遍历接口，无法使用for...of循环，通过 Generator 函数为它加上这个接口，就可以用了
+function* objectEntries(obj) {
+  let propKeys = Reflect.ownKeys(obj);
+
+  for (let propKey of propKeys) {
+    yield [propKey, obj[propKey]];
+  }
+}
+
+let jane = { first: 'Jane', last: 'Doe' };
+
+for (let [key, value] of objectEntries(jane)) {
+  console.log(`${key}: ${value}`);
+}
+// first: Jane
+// last: Doe
+
+// 加上遍历器接口的另一种写法是，将 Generator 函数加到对象的Symbol.iterator属性上面
+function* objectEntries() {
+  let propKeys = Object.keys(this);
+
+  for (let propKey of propKeys) {
+    yield [propKey, this[propKey]];
+  }
+}
+
+let jane = { first: 'Jane', last: 'Doe' };
+
+jane[Symbol.iterator] = objectEntries;
+
+for (let [key, value] of jane) {
+  console.log(`${key}: ${value}`);
+}
+// first: Jane
+// last: Doe
 ```
 ```javascript
 ```
